@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <ul style="display: inline;">
+    {{#if user}}
+      <p>Hello {{user.username}}</p>
+      <li><a href="/users/logout">logout</a></li>
+    {{else}}
+      <li><a href="/users/login">login</a></li>
+      <li><a href="/users/signup">signup</a></li>
+    {{/if}}
+  </ul>
+  {{{body}}}
+</body>
+</html>
