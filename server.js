@@ -21,7 +21,8 @@ var usersController = require('./controllers/users.js')
 var app = express();
 // DATABASE CONNECTION
 // ==================================
-mongoose.connect('mongodb://localhost/cd-library');
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/cd-library';
+mongoose.connect(mongoUri);
 
 // MIDDLEWARE / CONFIGURATION
 // ==================================
@@ -63,4 +64,4 @@ app.get('/', hello, function(req, res) {
 
 // SERVER LISTENING ON PORT
 // ==================================
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
