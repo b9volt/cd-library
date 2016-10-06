@@ -22,7 +22,7 @@ var app = express();
 // DATABASE CONNECTION
 // ==================================
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/cd-library';
-mongoose.connect(mongoUri);
+mongoose.connect(mongoURI);
 
 // MIDDLEWARE / CONFIGURATION
 // ==================================
