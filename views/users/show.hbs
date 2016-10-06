@@ -1,8 +1,16 @@
-{{#each user}}
+<h1>{{username}} CD Library</h1>
+
+<!-- {{#if user}}
+{{#each cd}}
   <ul>
     <li>{{username}}</li>
-
     /* show route */
     <a href="/users/{{_id}}">show</a>
   </ul>
 {{/each}}
+{{/if}} -->
+<form action="/users/show" method="post">
+  <input type="text" name="add cd" placeholder="add cd">
+  <button type="submit">Log in</button>
+</form>
+<p>Hello! Is This Working?</p>

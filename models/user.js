@@ -22,4 +22,4 @@ userSchema.methods.sayHello = function() {
 var Cd = mongoose.model('Cd', cdSchema);
 var User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = User, Cd;

@@ -4,7 +4,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
-
+// SIGNUP
+// ==================================
 router.get('/signup', function(req, res) {
   res.render('users/signup');
 })
@@ -23,6 +24,8 @@ router.post('/signup', function(req, res) {
     });
 });
 
+// LOGIN
+// ==================================
 router.get('/login', function(req, res) {
   console.log(req.session)
   res.render('users/login');
@@ -38,6 +41,8 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   });
 });
 
+// INDEX
+// ==================================
 router.get('/', (req, res) => {
   var query = User.find({});
 
@@ -49,11 +54,15 @@ router.get('/', (req, res) => {
   });
 });
 
+// LOGOUT
+// ==================================
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/users');
 });
 
+// IF NOT USER
+// ==================================
 var authenticate = function(req, res, next) {
   if (!req.user || req.user._id != req.params.id) {
     res.json({status: 401, message: 'unauthorized'})
@@ -62,15 +71,16 @@ var authenticate = function(req, res, next) {
   }
 }
 
-
+// IF USER SHOW
+// ==================================
 router.get('/:id', function(req, res) {
   if (!req.user || req.user._id != req.params.id) {
     res.json({status: 401, message: 'unauthorized'})
   } else {
     var query = User.findById({_id: req.params.id})
-
     query.then(function(user) {
-      res.json(user)
+      res.render('users/show.hbs');
+      // res.json(user)
     })
     .catch(function(err) {
       res.json({message: 'nope' + err});

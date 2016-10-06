@@ -55,6 +55,8 @@ var hello = function(req, res, next) {
   next()
 };
 
+// HOME
+// ==================================
 app.get('/', hello, function(req, res) {
   res.json({status: 200, message: "Everythings A-Okay"});
 });
