@@ -1,4 +1,4 @@
-<h1>{{username}} CD Library</h1>
+<h1>{{user.username}} CD Library</h1>
 
 <!-- {{#if user}}
 {{#each cd}}
@@ -9,8 +9,16 @@
   </ul>
 {{/each}}
 {{/if}} -->
-<form action="/users/show" method="post">
+<form action="/users/:id/cds" method="post">
   <input type="text" name="add cd" placeholder="add cd">
-  <button type="submit">Log in</button>
+  <button type="submit">Add Cd</button>
 </form>
-<p>Hello! Is This Working?</p>
+<p>Add, edit or delete a cd</p>
+
+
+
+{{#each user.cdLibrary}}
+  <ul>
+    <li>{{artist}}</li>
+  </ul>
+{{/each}}

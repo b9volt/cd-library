@@ -12,7 +12,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // MODELS
 // ==================================
-var User = require('./models/user')
+var Schema = require('./models/user')
+var User = Schema.User
+var Cd = Schema.Cd
 
 // MODULES
 // ==================================
@@ -59,7 +61,7 @@ var hello = function(req, res, next) {
 // HOME
 // ==================================
 app.get('/', hello, function(req, res) {
-  res.json({status: 200, message: "Everythings A-Okay"});
+  res.render('home');
 });
 
 // SERVER LISTENING ON PORT

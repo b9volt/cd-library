@@ -2,8 +2,9 @@ var express = require('express');
 var router  = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../models/user');
-
+var Schema = require('../models/user');
+var User = Schema.User;
+var Cd = Schema.Cd;
 // SIGNUP
 // ==================================
 router.get('/signup', function(req, res) {
@@ -47,7 +48,7 @@ router.get('/', (req, res) => {
   var query = User.find({});
 
   query.then(function(users) {
-    res.render('users/index.hbs', { users: users, user: req.user})
+    res.render('users/index', { users: users, user: req.user})
   })
   .catch(function(err) {
     console.log(err)
@@ -79,7 +80,8 @@ router.get('/:id', function(req, res) {
   } else {
     var query = User.findById({_id: req.params.id})
     query.then(function(user) {
-      res.render('users/show.hbs');
+      console.log(user.cdLibrary);
+      res.render('users/show.hbs', {user: user});
       // res.json(user)
     })
     .catch(function(err) {
