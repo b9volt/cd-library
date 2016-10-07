@@ -1,10 +1,11 @@
 <h1> This is your cd library</h1>
-
-<!-- {{users}} -->
-
+<a id="newUser" href="/users/new">New User</a>
 {{#each users}}
-  <ul>
-    <li>{{username}}</li>
-    <a href="/users/{{_id}}">library</a>
-  </ul>
+    <div class="user">
+        <div class="userName"><a href="/users/{{_id}}">{{name}}</a></div>
+            {{#each cds}}
+                <p class="reminder">{{body}}</p>
+            {{/each}}
+            <br>
+        </div>
 {{/each}}

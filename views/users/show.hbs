@@ -1,24 +1,35 @@
-<h1>{{user.username}} CD Library</h1>
-
-<!-- {{#if user}}
-{{#each cd}}
-  <ul>
-    <li>{{username}}</li>
-    /* show route */
-    <a href="/users/{{_id}}">show</a>
-  </ul>
+<h2>Library for {{user.name}}</h2>
+<div>
+{{#each user.cds}}
+  <div>
+    <p>{{body}}</p>
+    <form method="post" action="/users/{{../user._id}}/cds/{{_id}}?_method=delete">
+        <input type="submit" value="Done!">
+    </form>
+  </div>
 {{/each}}
-{{/if}} -->
-<form action="/users/:id/cds" method="post">
-  <input type="text" name="add cd" placeholder="add cd">
-  <button type="submit">Add Cd</button>
-</form>
-<p>Add, edit or delete a cd</p>
+</div>
+
+<div>
+  <h3>New Cd</h3>
+    <form action="/users/{{user._id}}/cds" method="post">
+        <label>Body</label>
+        <input type="text" name="newCd">
+        <input type="submit">
+    </form>
+</div>
 
 
+<div id="cd-edit">
+    <a href="/users/{{user._id}}/edit">Edit User</a>
+    <a href="/users">Back</a>
+</div>
 
 {{#each user.cdLibrary}}
   <ul>
     <li>{{artist}}</li>
+    <li>{{album}}</li>
+    <li>{{year}}</li>
+    <li>{{genre}}</li>
   </ul>
 {{/each}}
