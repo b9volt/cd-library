@@ -1,11 +1,23 @@
-<h1> This is your cd library</h1>
-<a id="newUser" href="/users/new">New User</a>
-{{#each users}}
-    <div class="user">
-        <div class="userName"><a href="/users/{{_id}}">{{name}}</a></div>
-            {{#each cds}}
-                <p class="reminder">{{body}}</p>
+<!-- {{#each users}}
+    <div>
+        <div><a href="/users/"+{{_id}}>{{username}}</a></div>
+            {{#each cdLibrary}}
+                <p>{{artist}}</p>
+                <p>{{album}}</p>
+                <p>{{year}}</p>
+                <p>{{genre}}</p>
             {{/each}}
             <br>
-        </div>
+    </div>
+{{/each}}
+{{users}} -->
+<h1> users index page</h1>
+
+{{users}}
+
+{{#each users}}
+  <ul>
+    <li>{{username}}</li>
+    <a href="/users/{{_id}}">show</a>
+  </ul>
 {{/each}}

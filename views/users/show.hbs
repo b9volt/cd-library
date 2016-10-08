@@ -1,7 +1,7 @@
-<h2>Library for {{user.name}}</h2>
-<div>
-{{#each user.cds}}
-  <div>
+<h2>Library for {{user.username}}</h2>
+<!-- <div>
+{{#each user.cds}} -->
+  <!-- <div>
     <p>{{body}}</p>
     <form method="post" action="/users/{{../user._id}}/cds/{{_id}}?_method=delete">
         <input type="submit" value="Done!">
@@ -23,13 +23,20 @@
 <div id="cd-edit">
     <a href="/users/{{user._id}}/edit">Edit User</a>
     <a href="/users">Back</a>
-</div>
+</div> -->
+{{#each user}}
+  <ul>
+    <li>{{user.username}}</li>
 
-{{#each user.cdLibrary}}
+    /* show route */
+    <a href="/users/{{_id}}">show</a>
+  </ul>
+{{/each}}
+<!-- {{#each user.cdLibrary}}
   <ul>
     <li>{{artist}}</li>
     <li>{{album}}</li>
     <li>{{year}}</li>
     <li>{{genre}}</li>
   </ul>
-{{/each}}
+{{/each}} -->
