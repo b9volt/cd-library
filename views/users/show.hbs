@@ -1,4 +1,4 @@
-<h2>Library for {{user.username}}</h2>
+<!-- <h2>Library for {{user.username}}</h2> -->
 <!-- <div>
 {{#each user.cds}} -->
   <!-- <div>
@@ -24,19 +24,19 @@
     <a href="/users/{{user._id}}/edit">Edit User</a>
     <a href="/users">Back</a>
 </div> -->
-{{#each user}}
+<!-- {{#each user}}
   <ul>
     <li>{{user.username}}</li>
 
     /* show route */
     <a href="/users/{{_id}}">show</a>
   </ul>
-{{/each}}
-<!-- {{#each user.cdLibrary}}
+{{/each}} -->
+{{#each user.cdLibrary}}
   <ul>
     <li>{{artist}}</li>
     <li>{{album}}</li>
     <li>{{year}}</li>
     <li>{{genre}}</li>
   </ul>
-{{/each}} -->
+{{/each}}
