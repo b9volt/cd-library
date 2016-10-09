@@ -1,15 +1,14 @@
 // MODULES
 // ==================================
-pry                 = require('pryjs')
-var express         = require('express');
-var mongoose        = require('mongoose');
-var logger          = require('morgan');
-var hbs             = require('hbs');
-var bodyParser      = require('body-parser');
-var methodOverride  = require('method-override');
-var passport        = require('passport');
-var LocalStrategy   = require('passport-local').Strategy;
-var app             = express();
+pry = require('pryjs')
+var express = require('express');
+var mongoose = require('mongoose');
+var logger = require('morgan');
+var hbs = require('hbs');
+var bodyParser = require('body-parser');
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // MODELS
 // ==================================
@@ -21,6 +20,7 @@ var Cd = Schema.Cd
 // ==================================
 var usersController = require('./controllers/users.js')
 
+var app = express();
 // DATABASE CONNECTION
 // ==================================
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/cd-library';
@@ -31,7 +31,7 @@ mongoose.connect(mongoURI);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(methodOverride('_method'));
+
 app.set('view engine', 'hbs');
 
 app.use(require('express-session')({

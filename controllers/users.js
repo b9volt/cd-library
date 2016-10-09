@@ -1,12 +1,10 @@
-var express       = require('express');
-var router        = express.Router();
-var passport      = require('passport');
+var express = require('express');
+var router  = express.Router();
+var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var Schema        = require('../models/user');
-
+var Schema = require('../models/user');
 var User = Schema.User;
 var Cd = Schema.Cd;
-
 // SIGNUP
 // ==================================
 router.get('/signup', function(req, res) {
@@ -44,53 +42,18 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   });
 });
 
-// USER INDEX
+// INDEX
 // ==================================
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   var query = User.find({});
 
   query.then(function(users) {
-    res.render('users/index.hbs', { users: users, user: req.user})
+    res.render('users/index', { users: users, user: req.user})
   })
   .catch(function(err) {
     console.log(err)
   });
 });
-
-// CD NEW
-// ==================================
-router.get('/:id/new', function(req, res){
-  res.render('users/new');
-});
-
-// CD SHOW
-// ==================================
-// router.get('/:id', function(req, res){
-//   Cd.findById(req.params.id, function(err, author){
-//     res.render('users/show', {user : user});
-//   });
-// });
-
-// CD CREATE
-// ==================================
-router.post('/:id/cdLibrary', function(req, res){
-  console.log("Please create a Cd")
-  res.render("This is where a new cd goes")
-  // User.findById(req.params.id, function(err, author){
-  //       user.cdLibrary.push(new Cd({body: req.body.newCd}))
-  //       user.save(function(err){
-  //           res.redirect(`/users/${user.id}`);
-  //       });
-  //   });
-});
-// CD EDIT
-// ==================================
-
-// CD UPDATE
-// ==================================
-
-// CD DELETE
-// ==================================
 
 // LOGOUT
 // ==================================
@@ -117,9 +80,9 @@ router.get('/:id', function(req, res) {
   } else {
     var query = User.findById({_id: req.params.id})
     query.then(function(user) {
-      // console.log(user.cdLibrary);
-      // res.render('users/show.hbs', {user: user});
-      res.json(user)
+      console.log(user.cdLibrary);
+      res.render('users/show.hbs', {user: user});
+      // res.json(user)
     })
     .catch(function(err) {
       res.json({message: 'nope' + err});
