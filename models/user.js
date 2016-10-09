@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var passportLocalMongoose = require('passport-local-mongoose');
+mongoose.Promise = global.Promise;
 
 var cdSchema = new mongoose.Schema({
   artist: String,
@@ -18,7 +19,7 @@ var userSchema = new mongoose.Schema({
 cdSchema.plugin(passportLocalMongoose);
 userSchema.plugin(passportLocalMongoose);
 userSchema.methods.sayHello = function() {
-    console.log("Hi " + this.first_name);
+    console.log("Hi " + this.username);
 };
 
 var Cd = mongoose.model('Cd', cdSchema);

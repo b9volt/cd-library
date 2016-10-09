@@ -1,23 +1,17 @@
-<!-- {{#each users}}
-    <div>
-        <div><a href="/users/"+{{_id}}>{{username}}</a></div>
+<h1> users index page</h1>
+{{#each users}}
+        <div>
+          <label>User Name: </label>
+          <a href="/users/{{_id}}">{{username}}</a></div>
             {{#each cdLibrary}}
-                <p>{{artist}}</p>
-                <p>{{album}}</p>
-                <p>{{year}}</p>
-                <p>{{genre}}</p>
+              <ul>
+                <li>{{artist}}</li>
+                <li>{{album}}</li>
+                <li>{{year}}</li>
+                <li>{{genre}}</li>
+              </ul>
             {{/each}}
             <br>
-    </div>
-{{/each}}
-{{users}} -->
-<h1> users index page</h1>
-
+            <a href="users/{{_id}}/new">Create a new cd</a>
+{{/each}}<br>
 {{users}}
-
-{{#each users}}
-  <ul>
-    <li>{{username}}</li>
-    <a href="/users/{{_id}}">show</a>
-  </ul>
-{{/each}}
