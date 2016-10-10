@@ -1,12 +1,14 @@
 <h2>Cd Library</h2>
-{{#each users}}
   <div>
-    <h3>New Cd</h3>
-    <a href="users/new">Create a new cd</a>
+    <ul>
+      <li>Artist: {{artist}}</li>
+      <li>Album: {{album}}</li>
+      <li>Year: {{year}}</li>
+      <li>Genre: {{genre}}</li>
+      <li><a href="/users/edit">Edit</a></li>
+    </ul>
+    <a href="/users/new">Create new Cd</a>
+  </div><br>
+  <div>
+      <a href="/users">Back</a>
   </div>
-{{/each}}
-
-<!-- <div id="author-edit">
-    <a href="/authors/{{author._id}}/edit">Edit Author</a>
-    <a href="/authors">Back</a>
-</div> -->

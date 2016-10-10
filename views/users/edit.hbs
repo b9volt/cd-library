@@ -1,9 +1,13 @@
-<!-- <h2>Edit {{user.name}}</h2>
-<form action="/users/{{user._id}}?_method=put" method="post">
-    <label>Name:</label>
-    <input type="text" name="name" value="{{user.name}}">
-    <input type="submit">
-</form>
-
-<div><a href="/users/{{user._id}}/delete">Delete User</a></div> -->
-<a href="/users/edit">Edit Cd</a>
+<div>
+  <h2>Edit Cd</h2>
+    <form action="/users/{{_id}}" method="post">
+        <input type="text" name="newCd" placeholder="Artist"><br><br>
+        <input type="text" name="newCd" placeholder="Album"><br><br>
+        <input type="text" name="newCd" placeholder="Year"><br><br>
+        <input type="text" name="newCd" placeholder="Genre"><br><br>
+        <input type="submit">
+    </form>
+</div><br>
+<div>
+    <a href="/users/show">Back</a>
+</div>

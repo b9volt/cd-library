@@ -65,7 +65,7 @@ router.get('/new', function(req, res){
 
 // CD SHOW
 // ==================================
-router.get('/:id', function(req, res){
+router.get('/show', function(req, res){
     res.render('users/show');
 });
 
@@ -81,10 +81,9 @@ router.get('/:id', function(req, res){
 // });
 // CD EDIT
 // ==================================
-// router.post('/:id/edit', function(req, res) {
-//   console.log("Edit");
-//   res.render('users/edit.hbs');
-// })
+router.get('/edit', function(req, res) {
+  res.render('users/edit');
+});
 
 // CD UPDATE
 // ==================================
