@@ -59,38 +59,46 @@ router.get('/', function(req, res) {
 
 // CD NEW
 // ==================================
-router.get('/:id/new', function(req, res){
+router.get('/new', function(req, res){
   res.render('users/new');
 });
 
 // CD SHOW
 // ==================================
-// router.get('/:id', function(req, res){
-//   Cd.findById(req.params.id, function(err, author){
-//     res.render('users/show', {user : user});
-//   });
-// });
+router.get('/:id', function(req, res){
+    res.render('users/show');
+});
 
 // CD CREATE
 // ==================================
-router.post('/:id/cdLibrary', function(req, res){
-  console.log("Please create a Cd")
-  res.render("This is where a new cd goes")
-  // User.findById(req.params.id, function(err, author){
-  //       user.cdLibrary.push(new Cd({body: req.body.newCd}))
-  //       user.save(function(err){
-  //           res.redirect(`/users/${user.id}`);
-  //       });
-  //   });
-});
+// router.post('/:id/cdLibrary', function(req, res){
+//   User.findById(req.params.id, function(err, user){
+//     user.cdLibrary.push(new Cd({body: req.body.newCd}))
+//     user.save(function(err){
+//       res.redirect(`/users/${user.id}`);
+//     });
+//   });
+// });
 // CD EDIT
 // ==================================
+// router.post('/:id/edit', function(req, res) {
+//   console.log("Edit");
+//   res.render('users/edit.hbs');
+// })
 
 // CD UPDATE
 // ==================================
+// router.put('/users/:id', function(req, res) {
+//   console.log("update");
+//   res.send("UPDATE");
+// });
 
 // CD DELETE
 // ==================================
+// router.delete('/users/:id', function(req, res) {
+//   console.log("delete");
+//   res.send("DELETE");
+// });
 
 // LOGOUT
 // ==================================

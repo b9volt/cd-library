@@ -1,17 +1,7 @@
-<h1> users index page</h1>
+<h1>Users index</h1>
 {{#each users}}
         <div>
           <label>User Name: </label>
-          <a href="/users/{{_id}}">{{username}}</a></div>
-            {{#each cdLibrary}}
-              <ul>
-                <li>{{artist}}</li>
-                <li>{{album}}</li>
-                <li>{{year}}</li>
-                <li>{{genre}}</li>
-              </ul>
-            {{/each}}
-            <br>
-            <a href="users/{{_id}}/new">Create a new cd</a>
+          <a href="/users/{{_id}}/new">{{username}}</a>
+        </div>
 {{/each}}<br>
-{{users}}

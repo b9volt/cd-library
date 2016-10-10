@@ -1,9 +1,14 @@
-<h2>Add a new cd</h2>
-
-<form action="/users" method="post">
-  <input type="text" name="artist" placeholder="artist"><br>
-  <input type="text" name="album" placeholder="album"><br>
-  <input type="text" name="year" placeholder="year"><br>
-  <input type="text" name="genre" placeholder="genre"><br>
-  <button type="submit">New Cd</button>
-</form>
+<div>
+  <h2>New Cd</h2>
+    <form action="/users/{{_id}}" method="post">
+        <label>Artist:</label>
+        <input type="text" name="newCd"><br>
+        <label>Album:</label>
+        <input type="text" name="newCd"><br>
+        <label>Year:</label>
+        <input type="text" name="newCd"><br>
+        <label>Genre:</label>
+        <input type="text" name="newCd"><br>
+        <input type="submit">
+    </form>
+</div>
