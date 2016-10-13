@@ -1,14 +1,15 @@
 <div>
   <h2>New Cd</h2>
-    <form action="/users/{{_id}}" method="post">
+    <form action="/users/new/cd" method="post">
+        <input type"=hidden" value="{{user._id}}" name="userId">
         <label>Artist:</label>
-        <input type="text" name="newCd"><br><br>
+        <input type="text" name="artist"><br><br>
         <label>Album:</label>
-        <input type="text" name="newCd"><br><br>
+        <input type="text" name="album"><br><br>
         <label>Year:</label>
-        <input type="text" name="newCd"><br><br>
+        <input type="text" name="year"><br><br>
         <label>Genre:</label>
-        <input type="text" name="newCd"><br><br>
+        <input type="text" name="genre"><br><br>
         <input type="submit">
     </form>
 </div><br>

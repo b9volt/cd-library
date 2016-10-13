@@ -59,26 +59,61 @@ router.get('/', function(req, res) {
 
 // CD NEW
 // ==================================
-router.get('/new', function(req, res){
-  res.render('users/new');
+router.get('/new/:id', function(req, res){
+  var query = User.findById({_id: req.params.id})
+  query.then(function(user) {
+    // console.log(user.cdLibrary);
+    res.render('users/new', {user: user});
+
+  })
+
+  .catch(function(err) {
+    res.json({message: 'nope' + err});
+  });
+
+});
+
+// CD CREATE
+// =====================VERSION 3
+router.post('/new/cd', function(req, res){
+  var userId = req.body.userId;
+
+  var newCd = new Cd({
+      artist: req.body.artist,
+      album: req.body.album,
+      year: req.body.year,
+      genre: req.body.genre
+  });
+
+  User.findByIdAndUpdate(
+    userId,
+    {$push: {cdLibrary: newCd}},
+    {safe: true, upsert: true},
+    function(err, user) {
+      if (err) {
+        console.log(err);
+      } else{
+        res.redirect('/users/show/'+ userId)
+      }
+    }
+);
 });
 
 // CD SHOW
 // ==================================
-router.get('/show', function(req, res){
-    res.render('users/show');
+router.get('/show/:id', function(req, res){
+    var query = User.findById({_id: req.params.id})
+    query.then(function(user) {
+      // console.log(user.cdLibrary);
+      console.log(user);
+      res.render('users/show', {user: user});
+
+    })
+    .catch(function(err) {
+      res.json({message: 'nope' + err});
+    });
 });
 
-// CD CREATE
-// ==================================
-// router.post('/:id/cdLibrary', function(req, res){
-//   User.findById(req.params.id, function(err, user){
-//     user.cdLibrary.push(new Cd({body: req.body.newCd}))
-//     user.save(function(err){
-//       res.redirect(`/users/${user.id}`);
-//     });
-//   });
-// });
 // CD EDIT
 // ==================================
 router.get('/edit', function(req, res) {
@@ -94,10 +129,11 @@ router.get('/edit', function(req, res) {
 
 // CD DELETE
 // ==================================
-// router.delete('/users/:id', function(req, res) {
-//   console.log("delete");
-//   res.send("DELETE");
-// });
+router.get('/:id/delete', function(req, res){
+  User.findByIdAndRemove(req.params.id, function(err, author){
+    res.redirect('/users/show/'+ userId)
+  });
+});
 
 // LOGOUT
 // ==================================
