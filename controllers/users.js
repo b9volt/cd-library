@@ -74,7 +74,7 @@ router.get('/new/:id', function(req, res){
 });
 
 // CD CREATE
-// =====================VERSION 3
+// ==================================
 router.post('/new/cd', function(req, res){
   var userId = req.body.userId;
 
