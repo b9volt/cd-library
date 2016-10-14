@@ -129,11 +129,18 @@ router.get('/edit', function(req, res) {
 
 // CD DELETE
 // ==================================
-router.get('/:id/delete', function(req, res){
-  User.findByIdAndRemove(req.params.id, function(err, author){
-    res.redirect('/users/show/'+ userId)
-  });
+router.delete('/delete/:userid/:id', function(req, res){
+  console.log("I am deleting!")
+    User.findByIdAndUpdate(req.params.userid, {
+      $pull: {
+        cdLibrary: {_id: req.params.id}
+      }
+      // $set
+    }, function(req, res) {
+
+    });
 });
+
 
 // LOGOUT
 // ==================================

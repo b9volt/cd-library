@@ -7,7 +7,9 @@
       <li>Year: {{year}}</li>
       <li>Genre: {{genre}}</li>
       <li><a href="/users/edit">Edit</a></li>
-      <li><a href="/users/new/{{user._id}}">Delete</a></li><br>
+      <form method="post" action="/users/delete/{{../user._id}}/{{_id}}?_method=delete">
+       <input type="submit" value="Delete">
+      </form>
       {{/each}}
     </ul>
     <a href="/users/new/{{user._id}}">Create new Cd</a>
