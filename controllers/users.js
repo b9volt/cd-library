@@ -50,7 +50,7 @@ router.get('/', function(req, res) {
   var query = User.find({});
 
   query.then(function(users) {
-    res.render('users/index.hbs', { users: users, user: req.user})
+    res.render('users/index', { users: users, user: req.user})
   })
   .catch(function(err) {
     console.log(err)
@@ -130,19 +130,19 @@ router.get('/edit', function(req, res) {
 // CD DELETE
 // ==================================
 router.delete('/delete/:userid/:id', function(req, res){
+  var userId = req.body.userId;
   console.log("I am deleting!")
     User.findByIdAndUpdate(req.params.userid, {
       $pull: {
         cdLibrary: {_id: req.params.id}
       }
-      // $set
-    }, function(req, res) {
-
+    }, function(err) {
+      res.redirect('/users/show/'+ userId)
     });
 });
 
 
-// LOGOUT
+// USER LOGOUT
 // ==================================
 router.get('/logout', function(req, res) {
   req.logout();
