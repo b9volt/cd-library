@@ -7,7 +7,7 @@ var Schema        = require('../models/user');
 var User = Schema.User;
 var Cd = Schema.Cd;
 
-// SIGNUP
+// USER SIGNUP
 // ==================================
 router.get('/signup', function(req, res) {
   res.render('users/signup');
@@ -20,14 +20,11 @@ router.post('/signup', function(req, res) {
       if (err) {
         return res.json({ user : user });
       }
-
-      // passport.authenticate('local')(req, res, function () {
         res.redirect('/users/login');
-      // });
     });
 });
 
-// LOGIN
+// USER LOGIN
 // ==================================
 router.get('/login', function(req, res) {
   console.log(req.session)
@@ -57,20 +54,24 @@ router.get('/', function(req, res) {
   });
 });
 
+// USER LOGOUT
+// ==================================
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/users');
+});
+
 // CD NEW
 // ==================================
 router.get('/new/:id', function(req, res){
   var query = User.findById({_id: req.params.id})
   query.then(function(user) {
-    // console.log(user.cdLibrary);
     res.render('users/new', {user: user});
-
   })
 
   .catch(function(err) {
     res.json({message: 'nope' + err});
   });
-
 });
 
 // CD CREATE
@@ -96,60 +97,77 @@ router.post('/new/cd', function(req, res){
         res.redirect('/users/show/'+ userId)
       }
     }
-);
+  );
 });
 
 // CD SHOW
 // ==================================
 router.get('/show/:id', function(req, res){
-    var query = User.findById({_id: req.params.id})
-    query.then(function(user) {
-      // console.log(user.cdLibrary);
-      console.log(user);
-      res.render('users/show', {user: user});
+  var query = User.findById({_id: req.params.id})
+  query.then(function(user) {
+    console.log(user);
+    res.render('users/show', {user: user});
 
-    })
-    .catch(function(err) {
-      res.json({message: 'nope' + err});
-    });
+  })
+  .catch(function(err) {
+    res.json({message: 'nope' + err});
+  });
 });
 
 // CD EDIT
 // ==================================
-router.get('/edit', function(req, res) {
-  res.render('users/edit');
+router.get('/:userid/edit/:id', function(req, res){
+  var query = User.findByIdAndUpdate({_id: req.params.userid})
+    query.then(function(userFound) {
+      console.log("I am editing!")
+      
+      // Still need to find CD!
+
+      res.render('users/edit', {
+        user: userFound,
+        cd: {
+          artist: req.body.artist,
+          album: 'Country Road',
+          year: '1972',
+          genre: 'country'
+        }
+      });
+    })
+
+    .catch(function(err) {
+      res.json({message: 'nope' + err});
+    });
+
 });
+
 
 // CD UPDATE
 // ==================================
-// router.put('/users/:id', function(req, res) {
-//   console.log("update");
-//   res.send("UPDATE");
+// router.put('/:id', function(req, res){
+//   User.findByIdAndUpdate(req.params.id, {
+//       artist: req.body.name,
+//       album: req.body.name,
+//       year: req.body.name,
+//       genre: req.body.name
+//   }, {new: true}, function(err, user){
+//       res.render('users/show/', {user: user});
+//   });
 // });
 
 // CD DELETE
 // ==================================
-router.delete('/delete/:userid/:id', function(req, res){
-  var userId = req.body.userId;
-  console.log("I am deleting!")
+router.delete('/:userid/delete/:id', function(req, res){
+  console.log(req.body)
     User.findByIdAndUpdate(req.params.userid, {
       $pull: {
         cdLibrary: {_id: req.params.id}
       }
     }, function(err) {
-      res.redirect('/users/show/'+ userId)
+      res.redirect('/users/show/' + req.params.userid)
     });
 });
 
-
-// USER LOGOUT
-// ==================================
-router.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/users');
-});
-
-// IF NOT USER
+// AUTHENTICATION
 // ==================================
 var authenticate = function(req, res, next) {
   if (!req.user || req.user._id != req.params.id) {
@@ -159,16 +177,12 @@ var authenticate = function(req, res, next) {
   }
 }
 
-// IF USER SHOW
-// ==================================
 router.get('/:id', function(req, res) {
   if (!req.user || req.user._id != req.params.id) {
     res.json({status: 401, message: 'unauthorized'})
   } else {
     var query = User.findById({_id: req.params.id})
     query.then(function(user) {
-      // console.log(user.cdLibrary);
-      // res.render('users/show.hbs', {user: user});
       res.json(user)
     })
     .catch(function(err) {

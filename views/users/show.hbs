@@ -2,14 +2,14 @@
   <div>
     <ul>
       {{#each user.cdLibrary}}
-      <li>Artist: {{artist}}</li>
-      <li>Album: {{album}}</li>
-      <li>Year: {{year}}</li>
-      <li>Genre: {{genre}}</li>
-      <li><a href="/users/edit">Edit</a></li>
-      <form method="post" action="/users/delete/{{../user._id}}/{{_id}}?_method=delete">
-       <input type="submit" value="Delete"/>
-      </form>
+        <li>Artist: {{artist}}</li>
+        <li>Album: {{album}}</li>
+        <li>Year: {{year}}</li>
+        <li>Genre: {{genre}}</li>
+        <li><a href="/users/{{../user._id}}/edit/{{_id}}">Edit</a></li>
+        <form method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
+         <input type="submit" value="Delete"/>
+        </form>
       {{/each}}
     </ul>
     <a href="/users/new/{{user._id}}">Create new Cd</a>
