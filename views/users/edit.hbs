@@ -1,13 +1,13 @@
 <div>
   <h2>Edit Cd</h2>
+  <p>User Name: {{user.username}}</p>
   <p>User Id: {{user._id}}</p>
-  <p>Cd Id: {{user}}</p>
-  </p>
+  <p>Cd Id: {{_id}}</p>
   <form method="put" action="/users/show/{{user._id}}"> <!-- add method used for updating -->
-    <input type="text" name="artist" value="{{user.cd.artist}}"><br><br>
-    <input type="text" name="album" value="{{cd.album}}"><br><br>
-    <input type="text" name="year" value="{{cd.year}}"><br><br>
-    <input type="text" name="genre" value="{{cd.genre}}"><br><br>
+    <input type="text" name="artist" value="{{artist}}"><br><br>
+    <input type="text" name="album" value="{{album}}"><br><br>
+    <input type="text" name="year" value="{{year}}"><br><br>
+    <input type="text" name="genre" value="{{genre}}"><br><br>
     <input type="submit" value="Edit">
   </form>
 </div><br>
