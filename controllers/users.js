@@ -120,7 +120,9 @@ router.get('/:userid/edit/:id', function(req, res){
   var query = User.findByIdAndUpdate({_id: req.params.userid})
     query.then(function(userFound) {
       console.log("I am editing!")
-      
+      $put: {
+        cd: {_id: req.params.id}
+      }
       // Still need to find CD!
 
       res.render('users/edit', {
@@ -143,16 +145,16 @@ router.get('/:userid/edit/:id', function(req, res){
 
 // CD UPDATE
 // ==================================
-// router.put('/:id', function(req, res){
-//   User.findByIdAndUpdate(req.params.id, {
-//       artist: req.body.name,
-//       album: req.body.name,
-//       year: req.body.name,
-//       genre: req.body.name
-//   }, {new: true}, function(err, user){
-//       res.render('users/show/', {user: user});
-//   });
-// });
+router.put('/:userid/edit/:id', function(req, res){
+  console.log(req.body)
+  // User.findByIdAndUpdate(req.params.userid, {
+  //   $put: {
+  //     cdLibrary: {_id: req.params.id}
+  // } function(err, user){
+      res.redirect('/users/show'+ userId);
+  // });
+});
+
 
 // CD DELETE
 // ==================================
