@@ -8,7 +8,7 @@
         <li>Genre: {{genre}}</li>
         <li><a href="/users/{{../user._id}}/edit/{{_id}}">Edit</a></li>
         <form method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
-         <input type="submit" value="Delete"/>
+         <input type="submit" value="Delete">
         </form>
       {{/each}}
     </ul>

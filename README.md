@@ -1,16 +1,20 @@
 # cd-library
 Unit 2 project for General Assembly
 
+Wireframe: https://wireframe.cc/A5UXNq
+
+
 The purpose of this app is to create a library of audio cds.
-Once logged in to your account, you have the ability to add new cds, update existing ones or remove them from the library.
+Once logged in to your account, you have the ability to add new cds, update
+existing ones or remove them from the library.
 
 Additional features include viewing other users
 collections, without the ability to change any of their data.
-Eventually Users could interact through a blog with the ability to
-share, trade, or even purchase Cd's form other users.
+Eventually Users could interact through a blog with the ability to share, trade,
+or even purchase Cd's form other users.
 
 1.  User goes to "/" and sees a welcome page.
-2.  On the welcome page, user has the option to create a new account,
+2.  On the welcome page, user has the option to create a new  account,
     login to their existing account.
 3.  Upon logging in, the user sees a collection of users on the user
     index page.

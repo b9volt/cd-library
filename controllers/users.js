@@ -120,15 +120,13 @@ router.get('/show/:id', function(req, res){
 //   var query = User.findByIdAndUpdate({_id: req.params.userid})
 //     query.then(function(userFound) {
 //       console.log("I am editing!")
-//       $put: {
-//         cd: {_id: req.params.id}
-//       }
+//
 //       // Still need to find CD!
 //
 //       res.render('users/edit', {
 //         user: userFound,
-//         cd: {
-//           artist: req.body.artist,
+//         cdLibrary: {
+//           artist: 'John Denver',
 //           album: 'Country Road',
 //           year: '1972',
 //           genre: 'country'
@@ -146,8 +144,13 @@ router.get('/show/:id', function(req, res){
 // ==================================
 router.get('/:userid/edit/:id', function(req, res){
   console.log("I am editing!")
-  var query = User.findById({_id: req.params.userid}, function(err, user) {
-    res.render('users/edit', { user: user });
+  User.findById({_id: req.params.userid}, function(err, user) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('users/edit', { user: user,
+     });
+   }
   });
 });
 
@@ -156,11 +159,11 @@ router.get('/:userid/edit/:id', function(req, res){
 router.put('/:userid/edit/:id', function(req, res){
   console.log(req.body)
   User.findByIdAndUpdate(req.params.userid, {
-    $pull: {
-    artist: Nirvana,
-    album: Nevermind,
-    year: 1991,
-    genre: grunge
+    $set: {
+    artist: req.body.artist,
+    album: req.body.album,
+    year: req.body.year,
+    genre: req.body.genre
   }}, {new: true}, function(err, user) {
       res.redirect('/users/show'+ userId, {user: user});
   });
