@@ -154,20 +154,21 @@ router.get('/:userid/edit/:id', function(req, res){
   });
 });
 
+
 // CD UPDATE
 // ==================================
-// router.put('/:userid/edit/:id', function(req, res){
-//   console.log(req.body)
-//   User.findByIdAndUpdate(req.params.userid, {
-//     $set: {
-//     artist: req.body.artist,
-//     album: req.body.album,
-//     year: req.body.year,
-//     genre: req.body.genre
-//   }}, {new: true}, function(err, user) {
-//       res.redirect('/users/show'+ userId, {user: user});
-//   });
-// });
+router.put('/:userid/edit/:id', function(req, res){
+  console.log(req.body)
+  User.findByIdAndUpdate(req.params.userid, {
+    $set: {
+    artist: req.body.artist,
+    album: req.body.album,
+    year: req.body.year,
+    genre: req.body.genre
+  }}, {new: true}, function(err, user) {
+      res.redirect('/users/show'+ userId, {user: user});
+  });
+});
 
 // CD DELETE
 // ==================================
