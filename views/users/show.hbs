@@ -6,7 +6,7 @@
         <li>Album: {{album}}</li>
         <li>Year: {{year}}</li>
         <li>Genre: {{genre}}</li>
-        <li><a href="/users/{{../user._id}}/edit/{{_id}}">Edit</a></li>
+        <li><a href="/users/{{../user._id}}/edit/{{@index}}">Edit</a></li>
         <form method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
          <input type="submit" value="Delete">
         </form>

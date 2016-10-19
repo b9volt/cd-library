@@ -1,13 +1,12 @@
 <div>
   <h2>Edit Cd</h2>
-  <p>User Name: {{user.username}}</p>
   <p>User Id: {{user._id}}</p>
-  <p>Cd Id: {{user.cdLibrary.[0]._id}}</p>
-  <form method="put" action="/users/show/{{user._id}}">
-    <input type="text" name="artist" value="{{user.cdLibrary.[0].artist}}"><br><br>
-    <input type="text" name="album" value="{{user.cdLibrary.[0].album}}"><br><br>
-    <input type="text" name="year" value="{{user.cdLibrary.[0].year}}"><br><br>
-    <input type="text" name="genre" value="{{user.cdLibrary.[0].genre}}"><br><br>
+  <p>Cd Id: {{cdToEdit._id}}</p>
+  <form method="POST" action="/users/{{user._id}}/edit/{{cdToEdit._id}}?_method=POST">
+    <input type="text" name="artist" value="{{cdToEdit.artist}}"><br><br>
+    <input type="text" name="album" value="{{cdToEdit.album}}"><br><br>
+    <input type="text" name="year" value="{{cdToEdit.year}}"><br><br>
+    <input type="text" name="genre" value="{{cdToEdit.genre}}"><br><br>
     <input type="submit" value="Edit">
   </form>
 </div><br>

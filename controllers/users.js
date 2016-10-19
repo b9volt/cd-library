@@ -144,29 +144,48 @@ router.get('/show/:id', function(req, res){
 // ==================================
 router.get('/:userid/edit/:id', function(req, res){
   console.log("I am editing!")
+  var cd = req.params.id;
   User.findById({_id: req.params.userid}, function(err, user) {
     if (err) {
       console.log(err)
     } else {
-      res.render('users/edit', { user: user,
+      var cdToEdit = user.cdLibrary[cd];
+      res.render('users/edit', { user: user, cdToEdit: cdToEdit
      });
    }
   });
 });
 
+// router.get('/:userid/edit/:id', function(req, res){
+//   var query = User.findById({req.params.userid})
+//   console.log(req.body)
+//     query.then function(user){
+//       $set: {
+//         cdLibrary: {_id: req.params.id}
+//       }
+//     }, function(err) {
+//       res.redirect('/users/edit/' + req.params.userid)
+//     });
+// });
+
+
 
 // CD UPDATE
 // ==================================
-router.put('/:userid/edit/:id', function(req, res){
-  console.log(req.body)
-  User.findByIdAndUpdate(req.params.userid, {
+router.post('/:userid/edit/:cdid', function(req, res){
+  var cdid = req.params.cdid;
+  var userid = req.params.userid;
+  console.log(req.body);
+  User.findByIdAndUpdate(userid, {
     $set: {
+    cdLibrary: {_id: cdid}
+    {
     artist: req.body.artist,
     album: req.body.album,
     year: req.body.year,
     genre: req.body.genre
-  }}, {new: true}, function(err, user) {
-      res.redirect('/users/show'+ userId, {user: user});
+  }}}, {new: true}, function(err, user) {
+      res.redirect('/users/show/'+ userid);
   });
 });
 
