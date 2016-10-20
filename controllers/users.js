@@ -150,6 +150,7 @@ router.get('/:userid/edit/:id', function(req, res){
       console.log(err)
     } else {
       var cdToEdit = user.cdLibrary[cd];
+      cdToEdit.cdid = req.params.id;
       res.render('users/edit', { user: user, cdToEdit: cdToEdit
      });
    }
@@ -173,19 +174,18 @@ router.get('/:userid/edit/:id', function(req, res){
 // CD UPDATE
 // ==================================
 router.post('/:userid/edit/:cdid', function(req, res){
-  var cdid = req.params.cdid;
+  var cdid = req.body.cdid;
   var userid = req.params.userid;
-  console.log(req.body);
-  User.findByIdAndUpdate(userid, {
-    $set: {
-    cdLibrary: {_id: cdid}
-    {
-    artist: req.body.artist,
-    album: req.body.album,
-    year: req.body.year,
-    genre: req.body.genre
-  }}}, {new: true}, function(err, user) {
+
+  User.findById(userid,
+    function(err, user) {
+    user.cdLibrary[cdid] = req.body;
+
+    user.save(function (err, newCd){
+      if(err) return err;
       res.redirect('/users/show/'+ userid);
+    })
+
   });
 });
 

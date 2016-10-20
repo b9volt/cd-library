@@ -3,6 +3,7 @@
   <p>User Id: {{user._id}}</p>
   <p>Cd Id: {{cdToEdit._id}}</p>
   <form method="POST" action="/users/{{user._id}}/edit/{{cdToEdit._id}}?_method=POST">
+    <input type="text" name="cdid" value="{{cdToEdit.cdid}}"><br><br>
     <input type="text" name="artist" value="{{cdToEdit.artist}}"><br><br>
     <input type="text" name="album" value="{{cdToEdit.album}}"><br><br>
     <input type="text" name="year" value="{{cdToEdit.year}}"><br><br>
