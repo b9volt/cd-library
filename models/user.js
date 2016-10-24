@@ -16,7 +16,6 @@ var userSchema = new mongoose.Schema({
   cdLibrary: [cdSchema]
 });
 
-// cdSchema.plugin(passportLocalMongoose);
 userSchema.plugin(passportLocalMongoose);
 userSchema.methods.sayHello = function() {
     console.log("Hi " + this.username);
