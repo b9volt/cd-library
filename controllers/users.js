@@ -14,13 +14,13 @@ router.get('/signup', function(req, res) {
 })
 
 router.post('/signup', function(req, res) {
-  User.register(new User(
-    { username : req.body.username}),
+  User.register(new User({ username : req.body.username}),
     req.body.password, function(err, user) {
       if (err) {
-        return res.json({ user : user });
+        console.log(err);
+        return res.json({ error: err });
       }
-        res.redirect('/users/login');
+      res.redirect('/users/login');
     });
 });
 
