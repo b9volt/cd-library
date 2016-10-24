@@ -114,32 +114,6 @@ router.get('/show/:id', function(req, res){
   });
 });
 
-// CD EDIT First working version
-// ==================================
-// router.get('/:userid/edit/:id', function(req, res){
-//   var query = User.findByIdAndUpdate({_id: req.params.userid})
-//     query.then(function(userFound) {
-//       console.log("I am editing!")
-//
-//       // Still need to find CD!
-//
-//       res.render('users/edit', {
-//         user: userFound,
-//         cdLibrary: {
-//           artist: 'John Denver',
-//           album: 'Country Road',
-//           year: '1972',
-//           genre: 'country'
-//         }
-//       });
-//     })
-//
-//     .catch(function(err) {
-//       res.json({message: 'nope' + err});
-//     });
-//
-// });
-
 // CD EDIT
 // ==================================
 router.get('/:userid/edit/:id', function(req, res){
@@ -156,20 +130,6 @@ router.get('/:userid/edit/:id', function(req, res){
    }
   });
 });
-
-// router.get('/:userid/edit/:id', function(req, res){
-//   var query = User.findById({req.params.userid})
-//   console.log(req.body)
-//     query.then function(user){
-//       $set: {
-//         cdLibrary: {_id: req.params.id}
-//       }
-//     }, function(err) {
-//       res.redirect('/users/edit/' + req.params.userid)
-//     });
-// });
-
-
 
 // CD UPDATE
 // ==================================
