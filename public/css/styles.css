@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E0D8DE;
+}
+
+h1 {
+  color: red;
+}
+
+h3 {
+  text-transform:capitalize;
+}

@@ -32,6 +32,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public')); // for css
 app.set('view engine', 'hbs');
 
 app.use(require('express-session')({
