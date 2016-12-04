@@ -58,7 +58,7 @@ router.get('/', function(req, res) {
 // ==================================
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/users');
+  res.redirect('/');
 });
 
 // CD NEW
@@ -181,7 +181,7 @@ router.get('/:id', function(req, res) {
       res.json(user)
     })
     .catch(function(err) {
-      res.json({message: 'noper ' + err});
+      res.json({message: 'nope' + err});
     });
   }
 });
