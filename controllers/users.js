@@ -20,9 +20,7 @@ router.post('/signup', function(req, res) {
         console.log(err);
         return res.json({ error: err });
       }
-      passport.authenticate('local')(req, res, function () {
-        res.redirect('/users');
-      });
+      res.redirect('/users');
     });
 });
 
@@ -43,37 +41,6 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   });
 });
 
-// USER LOGOUT
-// ==================================
-router.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/');
-});
-
-// AUTHENTICATION
-// ==================================
-var authenticate = function(req, res, next) {
-  if (!req.user || req.user._id != req.params.id) {
-    res.json({status: 401, message: 'unauthorized'})
-  } else {
-    next()
-  }
-}
-
-router.get('/:id', function(req, res) {
-  if (!req.user || req.user._id != req.params.id) {
-    res.json({status: 401, message: 'unauthorized'})
-  } else {
-    var query = User.findById({_id: req.params.id})
-    query.then(function(user) {
-      res.json(user)
-    })
-    .catch(function(err) {
-      res.json({message: 'nope' + err});
-    });
-  }
-});
-
 // USER INDEX
 // ==================================
 router.get('/', function(req, res) {
@@ -85,6 +52,13 @@ router.get('/', function(req, res) {
   .catch(function(err) {
     console.log(err)
   });
+});
+
+// USER LOGOUT
+// ==================================
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/users');
 });
 
 // CD NEW
@@ -186,6 +160,30 @@ router.delete('/:userid/delete/:id', function(req, res){
     }, function(err) {
       res.redirect('/users/show/' + req.params.userid)
     });
+});
+
+// AUTHENTICATION
+// ==================================
+var authenticate = function(req, res, next) {
+  if (!req.user || req.user._id != req.params.id) {
+    res.json({status: 401, message: 'unauthorized'})
+  } else {
+    next()
+  }
+}
+
+router.get('/:id', function(req, res) {
+  if (!req.user || req.user._id != req.params.id) {
+    res.json({status: 401, message: 'unauthorized'})
+  } else {
+    var query = User.findById({_id: req.params.id})
+    query.then(function(user) {
+      res.json(user)
+    })
+    .catch(function(err) {
+      res.json({message: 'noper ' + err});
+    });
+  }
 });
 
 module.exports = router;
