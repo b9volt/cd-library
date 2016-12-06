@@ -117,7 +117,6 @@ router.get('/show/:id', function(req, res){
 // CD EDIT
 // ==================================
 router.get('/:userid/edit/:id', function(req, res){
-  console.log("I am editing!")
   var cd = req.params.id;
   User.findById({_id: req.params.userid}, function(err, user) {
     if (err) {

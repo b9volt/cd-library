@@ -5,15 +5,15 @@
   <a href="/users/{{../user._id}}/edit/{{@index}}">
     <div class="card">
       <div class="container-top">
-        <p><b>Artist: {{artist}}</b></p>
-        <p>Album: {{album}}</p>
+        <p><b>{{artist}}</b></p>
+        <p>{{album}}</p>
       </div>
         <form class="delete" method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
         <input type="submit" value="Delete">
         </form><br>
       <div class="container-bottom">
-        <p>Year: {{year}}</p>
-        <p>Genre: {{genre}}</p>
+        <p>{{year}}</p>
+        <p>{{genre}}</p>
       </div>
     </div>
   </a>
