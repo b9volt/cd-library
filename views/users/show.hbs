@@ -1,19 +1,20 @@
-<h2>Cd Library</h2>
-  <div>
-    <ul>
-      {{#each user.cdLibrary}}
-        <li>Artist: {{artist}}</li>
-        <li>Album: {{album}}</li>
-        <li>Year: {{year}}</li>
-        <li>Genre: {{genre}}</li>
-        <li><a href="/users/{{../user._id}}/edit/{{@index}}">Edit</a></li>
-        <form method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
-         <input type="submit" value="Delete">
-        </form>
-      {{/each}}
-    </ul>
-    <a href="/users/new/{{user._id}}">Create new Cd</a>
-  </div><br>
-  <div>
-      <a href="/users">Back</a>
-  </div>
+<a href="/users/new/{{user._id}}">Create new Cd</a>
+<a href="/users">Back</a>
+<h2>{{user.username}}'s Cd Library</h2>
+  {{#each user.cdLibrary}}
+  <a href="/users/{{../user._id}}/edit/{{@index}}">
+    <div class="card">
+      <div class="container-top">
+        <p><b>Artist: {{artist}}</b></p>
+        <p>Album: {{album}}</p>
+      </div>
+        <form class="delete" method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
+        <input type="submit" value="Delete">
+        </form><br>
+      <div class="container-bottom">
+        <p>Year: {{year}}</p>
+        <p>Genre: {{genre}}</p>
+      </div>
+    </div>
+  </a>
+  {{/each}}

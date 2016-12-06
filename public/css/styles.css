@@ -10,6 +10,51 @@ h1 {
   color: red;
 }
 
-h3 {
+h2 {
   text-transform:capitalize;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  background-image: url(http://i.imgur.com/TTfTMeE.png);
+  float: left;
+  margin: 10px;
+  color: #4B3B47;
+}
+
+.delete {
+  color: red;
+  /*height: 5px;*/
+  padding: 15% 5%;
+  float: right;
+  /*margin: 0;*/
+}
+
+.delete:hover {
+  /*color: red;*/
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container-top {
+    line-height: 2px;
+    padding-top: 25px;
+}
+
+.container-bottom {
+    line-height: 2px;
+    padding-top: 80px;
+}
+
+/*img {
+    border-radius: 5px 5px 0 0;
+}*/
