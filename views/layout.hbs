@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
   <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
+<title>CD Library</title>
 <body class="body">
+  <header>
+      <img src="http://i.imgur.com/pM5QShF.png" style="width:300px;" alt="cd-library logo"/>
+  </header>
     {{#if user}}
-      <a href="/users/logout">logout</a>
+    <nav>
+      <a class="logout" href="/users/logout">logout</a>
+    </nav>
     {{else}}
-    
+
     {{/if}}
   {{{body}}}
 </body>

@@ -1,16 +1,18 @@
-<div>
-  <h2>Edit Cd</h2>
+<a class="btn btn-default btn-lg"href="/users/show/{{user._id}}">Back</a>
+<div class="home">
+  <h1>Edit Cd</h1>
   <!-- <p>User Id: {{user._id}}</p>
   <p>Cd Id: {{cdToEdit._id}}</p> -->
   <form method="POST" action="/users/{{user._id}}/edit/{{cdToEdit._id}}?_method=POST">
     <input type="hidden" name="cdid" value="{{cdToEdit.cdid}}">
-    <input type="text" name="artist" value="{{cdToEdit.artist}}"><br><br>
-    <input type="text" name="album" value="{{cdToEdit.album}}"><br><br>
-    <input type="text" name="year" value="{{cdToEdit.year}}"><br><br>
-    <input type="text" name="genre" value="{{cdToEdit.genre}}"><br><br>
+    <label>Artist:</label>
+    <input type="text" name="artist" maxlength="24" value="{{cdToEdit.artist}}"><br><br>
+    <label>Album:</label>
+    <input type="text" name="album" maxlength="32" value="{{cdToEdit.album}}"><br><br>
+    <label>Year:</label>
+    <input type="text" name="year" maxlength="4" value="{{cdToEdit.year}}"><br><br>
+    <label>Genre:</label>
+    <input type="text" name="genre" maxlength="24" value="{{cdToEdit.genre}}"><br><br>
     <input type="submit" value="Edit">
   </form>
 </div><br>
-<div>
-  <a href="/users/show/{{user._id}}">Back</a>
-</div>

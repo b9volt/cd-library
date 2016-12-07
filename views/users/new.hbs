@@ -1,15 +1,15 @@
-<div>
-  <h2>New Cd</h2>
+<div class="home">
+  <h1>New CD</h1>
     <form action="/users/new/cd" method="post">
         <input type="hidden" value="{{user._id}}" name="userId">
         <label>Artist:</label>
-        <input type="text" name="artist"><br><br>
+        <input type="text" name="artist" maxlength="24"><br><br>
         <label>Album:</label>
-        <input type="text" name="album"><br><br>
+        <input type="text" name="album" maxlength="32"><br><br>
         <label>Year:</label>
-        <input type="text" name="year"><br><br>
+        <input type="text" name="year" maxlength="4"><br><br>
         <label>Genre:</label>
-        <input type="text" name="genre"><br><br>
+        <input type="text" name="genre" maxlength="24"><br><br>
         <input type="submit">
     </form>
 </div><br>

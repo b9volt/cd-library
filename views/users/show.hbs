@@ -1,20 +1,22 @@
+<a class="btn btn-default btn-lg"href="/users">Back</a>
 <a href="/users/new/{{user._id}}">Create new Cd</a>
-<a href="/users">Back</a>
-<h2>{{user.username}}'s Cd Library</h2>
-  {{#each user.cdLibrary}}
-  <a href="/users/{{../user._id}}/edit/{{@index}}">
-    <div class="card">
-      <div class="container-top">
-        <p><b>{{artist}}</b></p>
-        <p>{{album}}</p>
+<div class="home">
+  <h1>{{user.username}}'s CD Library</h1>
+    {{#each user.cdLibrary}}
+    <a href="/users/{{../user._id}}/edit/{{@index}}">
+      <div class="disk">
+        <div class="container-top">
+          <p><b>{{artist}}</b></p>
+          <p>{{album}}</p>
+        </div>
+          <form class="delete" method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form><br>
+        <div class="container-bottom">
+          <p>{{year}}</p>
+          <p>{{genre}}</p>
+        </div>
       </div>
-        <form class="delete" method="post" action="/users/{{../user._id}}/delete/{{_id}}?_method=delete">
-        <input type="submit" value="Delete">
-        </form><br>
-      <div class="container-bottom">
-        <p>{{year}}</p>
-        <p>{{genre}}</p>
-      </div>
-    </div>
-  </a>
-  {{/each}}
+    </a>
+    {{/each}}
+</div>

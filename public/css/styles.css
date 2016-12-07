@@ -6,15 +6,54 @@ body {
   background-color: #E0D8DE;
 }
 
+header {
+  background-color: #4B3B47;
+  color: white;
+  padding: 1em;
+}
+
+nav {
+  background-color: #4B3B47;
+  font-size: 24px;
+  float:right;
+  margin-top: -40px;
+  margin-right: 10px;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #E0D8DE;
+  color: #4B3B47;
+  padding: 5em;
+}
+
+.logout {
+  text-decoration: none;
+  color: #E0D8DE;
+}
+
+.home{
+  text-align: center;
+  padding-top: 5em;
+  text-transform:capitalize;
+}
+
+.index{
+  font-size: 2em;
+  text-align: center;
+  padding-top: 5em;
+  text-transform:capitalize;
+}
+
 h1 {
-  color: red;
+  color: #4B3B47;
 }
 
 h2 {
   text-transform:capitalize;
 }
 
-.card {
+.disk {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 50%;
@@ -28,23 +67,20 @@ h2 {
 }
 
 .delete {
-  color: red;
   padding: 13% 5%;
   float: right;
 }
 
-.card:hover {
+.disk:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
 .container-top {
-  line-height: 15px;
-  padding-top: 25px;
+  line-height: 20px;
+  padding-top: 30px;
 }
 
 .container-bottom {
-  /*width: 200px;*/
-  line-height: 15px;
-  padding-top: 80px;
+  line-height: 20px;
+  padding-top: 110px;
 }
