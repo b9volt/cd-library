@@ -1,6 +1,7 @@
-<a class="btn btn-default btn-lg"href="/users">Back</a>
-<a href="/users/new/{{user._id}}">Create new Cd</a>
-<div class="home">
+<div class="contact-link"><a href="/users">
+<div class="contact-icon"><i class="fa fa-arrow-circle-left"></i></div></a></div>
+<div class="show">
+  <a class="btn btn-primary btn-lg" href="/users/new/{{user._id}}">Create new Cd</a>
   <h1>{{user.username}}'s CD Library</h1>
     {{#each user.cdLibrary}}
     <a href="/users/{{../user._id}}/edit/{{@index}}">

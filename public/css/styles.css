@@ -16,8 +16,71 @@ nav {
   background-color: #4B3B47;
   font-size: 24px;
   float:right;
-  margin-top: -40px;
+  margin-top: -50px;
   margin-right: 10px;
+}
+
+nav > button {
+  font-size: 24px;
+  background-color: none;
+  background: none;
+  border: none;
+}
+
+nav > button:focus {
+  outline:0;
+  color: #9C9990;
+}
+
+nav > button:hover {
+  color: #9C9990;
+}
+
+.site-contact {
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.contact-content-holder {
+    display: table;
+    width: 100%;
+}
+
+.contact-icon {
+    font-family: 'socialico';
+    font-size: 50px;
+}
+
+.contact-content-holder .contact-link {
+    text-align: center;
+    display: table-cell;
+    width: 25%;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    color: #4B3B47;
+    padding-top: 20px;
+    margin-left: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+
+.fa:hover {
+  text-decoration: none;
+  color: #9C9990;
+}
+
+.fa-arrow-circle-left:before {
+    content: "\f0a8";
 }
 
 .jumbotron {
@@ -35,18 +98,25 @@ nav {
 .home{
   text-align: center;
   padding-top: 5em;
-  text-transform:capitalize;
+  text-transform: capitalize;
+}
+
+.show {
+  text-align: center;
+  padding-top: 5em;
+  text-transform: capitalize;
 }
 
 .index{
   font-size: 2em;
   text-align: center;
   padding-top: 5em;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 h1 {
   color: #4B3B47;
+  text-transform:capitalize;
 }
 
 h2 {
@@ -67,7 +137,7 @@ h2 {
 }
 
 .delete {
-  padding: 13% 5%;
+  padding: 14% 5%;
   float: right;
 }
 
