@@ -5,14 +5,14 @@
   <h1>New CD</h1>
     <form action="/users/new/cd" method="post">
         <input type="hidden" value="{{user._id}}" name="userId">
-        <label>Artist:</label>
+        <label>Artist:</label><br>
         <input type="text" name="artist" maxlength="24"><br><br>
-        <label>Album:</label>
+        <label>Album:</label><br>
         <input type="text" name="album" maxlength="32"><br><br>
-        <label>Year:</label>
+        <label>Year:</label><br>
         <input type="text" name="year" maxlength="4"><br><br>
-        <label>Genre:</label>
+        <label>Genre:</label><br>
         <input type="text" name="genre" maxlength="24"><br><br>
-        <input type="submit">
+        <input type="submit" class="btn btn-success btn-lg" value="Add">
     </form>
 </div><br>

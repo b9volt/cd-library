@@ -20,45 +20,18 @@ nav {
   margin-right: 10px;
 }
 
-nav > button {
-  font-size: 24px;
-  background-color: none;
-  background: none;
-  border: none;
+.logout {
+  color: #E0D8DE;
 }
 
-nav > button:focus {
-  outline:0;
+.logout:hover {
+  text-decoration: none;
   color: #9C9990;
-}
-
-nav > button:hover {
-  color: #9C9990;
-}
-
-.site-contact {
-    position: relative;
-    display: table;
-    width: 100%;
-    margin-bottom: 30px;
-    padding: 20px 0;
-    text-align: left;
-}
-
-.contact-content-holder {
-    display: table;
-    width: 100%;
 }
 
 .contact-icon {
     font-family: 'socialico';
     font-size: 50px;
-}
-
-.contact-content-holder .contact-link {
-    text-align: center;
-    display: table-cell;
-    width: 25%;
 }
 
 .fa {
@@ -88,11 +61,6 @@ nav > button:hover {
   background-color: #E0D8DE;
   color: #4B3B47;
   padding: 5em;
-}
-
-.logout {
-  text-decoration: none;
-  color: #E0D8DE;
 }
 
 .home{

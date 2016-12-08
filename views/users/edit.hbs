@@ -2,19 +2,19 @@
 <div class="contact-icon"><i class="fa fa-arrow-circle-left"></i></div></a></div>
 
 <div class="home">
-  <h1>Edit Cd</h1>
+  <h1>Edit CD</h1><br>
   <!-- <p>User Id: {{user._id}}</p>
   <p>Cd Id: {{cdToEdit._id}}</p> -->
   <form method="POST" action="/users/{{user._id}}/edit/{{cdToEdit._id}}?_method=POST">
     <input type="hidden" name="cdid" value="{{cdToEdit.cdid}}">
-    <label>Artist:</label>
+    <label>Artist:</label><br>
     <input type="text" name="artist" maxlength="24" value="{{cdToEdit.artist}}"><br><br>
-    <label>Album:</label>
+    <label>Album:</label><br>
     <input type="text" name="album" maxlength="32" value="{{cdToEdit.album}}"><br><br>
-    <label>Year:</label>
+    <label>Year:</label><br>
     <input type="text" name="year" maxlength="4" value="{{cdToEdit.year}}"><br><br>
-    <label>Genre:</label>
+    <label>Genre:</label><br>
     <input type="text" name="genre" maxlength="24" value="{{cdToEdit.genre}}"><br><br>
-    <input type="submit" value="Edit">
+    <input class="btn btn-success btn-lg" type="submit" value="Edit">
   </form>
 </div><br>
