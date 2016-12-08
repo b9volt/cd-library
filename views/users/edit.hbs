@@ -8,13 +8,13 @@
   <form method="POST" action="/users/{{user._id}}/edit/{{cdToEdit._id}}?_method=POST">
     <input type="hidden" name="cdid" value="{{cdToEdit.cdid}}">
     <label>Artist:</label><br>
-    <input type="text" name="artist" maxlength="24" value="{{cdToEdit.artist}}"><br><br>
+    <input type="text" name="artist" maxlength="20" value="{{cdToEdit.artist}}"><br><br>
     <label>Album:</label><br>
-    <input type="text" name="album" maxlength="32" value="{{cdToEdit.album}}"><br><br>
+    <input type="text" name="album" maxlength="30" value="{{cdToEdit.album}}"><br><br>
     <label>Year:</label><br>
     <input type="text" name="year" maxlength="4" value="{{cdToEdit.year}}"><br><br>
     <label>Genre:</label><br>
-    <input type="text" name="genre" maxlength="24" value="{{cdToEdit.genre}}"><br><br>
+    <input type="text" name="genre" maxlength="20" value="{{cdToEdit.genre}}"><br><br>
     <input class="btn btn-success btn-lg" type="submit" value="Edit">
   </form>
 </div><br>

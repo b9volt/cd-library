@@ -12,6 +12,7 @@
   </header>
     {{#if user}}
     <nav>
+      <div class="welcome">Welcome {{user.username}}!</div>
       <a href="/users/logout" class="logout">logout</a>
     </nav>
     {{else}}

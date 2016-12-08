@@ -17,7 +17,15 @@ nav {
   font-size: 24px;
   float:right;
   margin-top: -50px;
-  margin-right: 10px;
+  margin-right: 20px;
+}
+
+.welcome {
+  color: #E0D8DE;
+  text-transform: capitalize;
+  margin-right: 40px;
+  font-size: 18px;
+  display: inline;
 }
 
 .logout {
@@ -56,6 +64,10 @@ nav {
     content: "\f0a8";
 }
 
+.fa-music:before {
+  content: "\f001";
+}
+
 .jumbotron {
   text-align: center;
   background-color: #E0D8DE;
@@ -76,19 +88,35 @@ nav {
 }
 
 .index{
+  width: 500px;
   font-size: 2em;
   text-align: center;
   padding-top: 5em;
   text-transform: capitalize;
+  color: #4B3B47;
+  margin: auto;
+}
+
+.users {
+  display: inline;
+}
+
+#user {
+  color: #4B3B47;
+  text-decoration: none;
+}
+
+#user:hover {
+  color: #9C9990;
 }
 
 h1 {
   color: #4B3B47;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 h2 {
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 .disk {

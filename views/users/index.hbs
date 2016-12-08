@@ -1,12 +1,17 @@
-<div class="contact-link"><a href="/">
-<div class="contact-icon"><i class="fa fa-arrow-circle-left"></i></div></a></div>
+<div class="contact-link">
+  <a href="/">
+    <div class="contact-icon">
+      <i class="fa fa-arrow-circle-left"></i>
+    </div>
+  </a>
+</div>
 
 <div class="index">
   <h1>Users index</h1>
 
   {{#each users}}
-    <div>
-      <a href="/users/show/{{_id}}">{{username}}</a><br>
-    </div>
-  {{/each}}<br>
+  <div class="users">
+    <a href="/users/show/{{_id}}" class="fa fa-music" id="user">{{username}}</a>
+  </div>
+  {{/each}}
 </div>
